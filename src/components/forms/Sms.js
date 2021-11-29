@@ -1,8 +1,11 @@
 import React from 'react';
 import { countryCodes } from '../../utils/country_codes.js';
 import { MdTextsms } from 'react-icons/md';
+import { useAppContext } from '../../context/app_context';
 
 function Sms() {
+    const { updateState } = useAppContext();
+
     return (
         <div className='card pt-4 mb-5'>
             <div className='card-body'>
@@ -22,6 +25,7 @@ function Sms() {
                                     name='country_code'
                                     autoComplete='off'
                                     placeholder='Country Code'
+                                    onChange={updateState}
                                 >
                                     {countryCodes.map((code, index) => {
                                         return (
@@ -44,6 +48,7 @@ function Sms() {
                                     name='phone_number'
                                     autoComplete='off'
                                     placeholder='Phone Number'
+                                    onChange={updateState}
                                 />
                                 <label htmlFor='phone'>Phone Number</label>
                             </div>
@@ -57,6 +62,7 @@ function Sms() {
                                     name='text_message'
                                     autoComplete='off'
                                     placeholder='Message'
+                                    onChange={updateState}
                                 ></textarea>
                                 <label htmlFor='message'>Message</label>
                             </div>

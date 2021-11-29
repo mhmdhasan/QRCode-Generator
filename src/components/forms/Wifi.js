@@ -1,7 +1,10 @@
 import React from 'react';
 import { MdWifi } from 'react-icons/md';
+import { useAppContext } from '../../context/app_context';
 
 function Wifi() {
+    const { updateState } = useAppContext();
+
     return (
         <div className='card pt-4 mb-5'>
             <div className='card-body'>
@@ -23,6 +26,7 @@ function Wifi() {
                                     name='network_name'
                                     autoComplete='off'
                                     placeholder='Network Name'
+                                    onChange={updateState}
                                 />
                                 <label htmlFor='networkName'>Network Name</label>
                             </div>
@@ -36,6 +40,7 @@ function Wifi() {
                                     name='network_type'
                                     autoComplete='off'
                                     placeholder='Newtwork Type'
+                                    onChange={updateState}
                                 >
                                     <option value='WEP'>WEP</option>
                                     <option value='WPA/WPA2'>WPA/WPA2</option>
@@ -54,6 +59,7 @@ function Wifi() {
                                     name='network_password'
                                     autoComplete='off'
                                     placeholder='Network Password'
+                                    onChange={updateState}
                                 />
                                 <label htmlFor='networkPassword'>Network Password</label>
                             </div>
@@ -66,6 +72,7 @@ function Wifi() {
                                     type='checkbox'
                                     name='network_visibilty'
                                     id='networkVisibility'
+                                    onChange={updateState}
                                 />
                                 <label
                                     className='form-check-label'

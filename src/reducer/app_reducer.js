@@ -86,6 +86,7 @@ export function reducer(state, action) {
                 vcard_phone_mobile: '',
                 vcard_email: '',
                 vcard_website: '',
+                vcard_company: '',
                 vcard_job: '',
                 office_country_code: '',
                 vcard_phone_office: '',

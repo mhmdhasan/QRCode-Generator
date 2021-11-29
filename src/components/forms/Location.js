@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import 'leaflet/dist/leaflet.js';
 import 'esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css';
 import 'esri-leaflet-geocoder/dist/esri-leaflet-geocoder.js';
-// import { createMap } from '../../utils/helpers';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { useAppContext } from '../../context/app_context';
 import L, { Marker } from 'leaflet';
@@ -12,9 +11,6 @@ function Location() {
     const { form_fields } = useAppContext();
     const [latitude, setLatitude] = useState(0);
     const [longitude, setLongitude] = useState(0);
-
-    form_fields.map_latitude = latitude;
-    form_fields.map_longitude = longitude;
 
     useEffect(() => {
         var leafletIcon = L.icon({
@@ -60,7 +56,10 @@ function Location() {
         createMap();
     }, []);
 
-    console.log(latitude);
+    form_fields.map_latitude = latitude;
+    form_fields.map_longitude = longitude;
+
+    console.log(form_fields);
     return (
         <div className='card pt-4 mb-5'>
             <div className='card-body'>
@@ -81,6 +80,7 @@ function Location() {
                                     name='map_latitude'
                                     autoComplete='off'
                                     placeholder='Latitude'
+                                    onChange={setLatitude}
                                     value={latitude}
                                 />
                                 <label htmlFor='latitude'>Latitude</label>
@@ -95,6 +95,7 @@ function Location() {
                                     name='map_longitude'
                                     autoComplete='off'
                                     value={longitude}
+                                    onChange={setLongitude}
                                     placeholder='Longitude'
                                 />
                                 <label htmlFor='longitude'>Longitude</label>

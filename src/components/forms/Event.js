@@ -1,7 +1,10 @@
 import React from 'react';
 import { AiTwotoneCalendar } from 'react-icons/ai';
+import { useAppContext } from '../../context/app_context';
 
 function Event() {
+    const { updateState } = useAppContext();
+
     return (
         <div className='card pt-4 mb-5'>
             <div className='card-body'>
@@ -23,6 +26,7 @@ function Event() {
                                     name='event_title'
                                     autoComplete='off'
                                     placeholder='Event Title'
+                                    onChange={updateState}
                                 />
                                 <label htmlFor='eventTitle'>Event Title</label>
                             </div>
@@ -37,6 +41,7 @@ function Event() {
                                     name='event_location'
                                     autoComplete='off'
                                     placeholder='Location'
+                                    onChange={updateState}
                                 />
                                 <label htmlFor='eventLocation'>Location</label>
                             </div>
@@ -51,6 +56,7 @@ function Event() {
                                     name='event_start_time'
                                     autoComplete='off'
                                     placeholder='Start Time'
+                                    onChange={updateState}
                                 />
                                 <label htmlFor='eventStartTime'>Start Time</label>
                             </div>
@@ -65,6 +71,7 @@ function Event() {
                                     name='event_end_time'
                                     autoComplete='off'
                                     placeholder='End Time'
+                                    onChange={updateState}
                                 />
                                 <label htmlFor='eventEndTime'>End Time</label>
                             </div>
@@ -78,6 +85,7 @@ function Event() {
                                     name='event_reminder'
                                     autoComplete='off'
                                     placeholder='Reminder before event'
+                                    onChange={updateState}
                                 >
                                     <option value='PT0M'>When the event starts</option>
                                     <option value='-PT5M'>5 minutes</option>
@@ -108,6 +116,7 @@ function Event() {
                                     name='event_link'
                                     autoComplete='off'
                                     placeholder='Link'
+                                    onChange={updateState}
                                 />
                                 <label htmlFor='eventLink'>Link</label>
                             </div>
@@ -121,6 +130,7 @@ function Event() {
                                     name='event_notes'
                                     autoComplete='off'
                                     placeholder='Notes'
+                                    onChange={updateState}
                                 ></textarea>
                                 <label htmlFor='eventNotes'>Notes</label>
                             </div>
