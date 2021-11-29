@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaReact, FaLaravel, FaQrcode } from 'react-icons/fa';
+import { FaReact, FaLaravel } from 'react-icons/fa';
 import { MdQrCode } from 'react-icons/md';
 
 function Hero() {

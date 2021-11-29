@@ -11262,7 +11262,7 @@ input[type='color'] {
 }
 
 .form-floating textarea {
-    min-height: 9rem !important;
+    min-height: 9rem;
 }
 
 /*
@@ -12225,3 +12225,5 @@ STYLE SWITCHER FOR DEMO
 #style-switch .h4 {
     color: #495057;
 }
+
+@import '~leaflet/dist/leaflet.css';
