@@ -1,7 +1,10 @@
 import React from 'react';
 import { FaBitcoin } from 'react-icons/fa';
+import { useAppContext } from '../../context/app_context';
 
 function Bitcoin() {
+    const { updateState } = useAppContext();
+
     return (
         <div className='card pt-4 mb-5'>
             <div className='card-body'>
@@ -23,6 +26,7 @@ function Bitcoin() {
                                     name='btc_account'
                                     autoComplete='off'
                                     placeholder='Acount'
+                                    onChange={updateState}
                                 />
                                 <label htmlFor='btcAccount'>Acount</label>
                             </div>
@@ -38,6 +42,7 @@ function Bitcoin() {
                                         name='btc_amount'
                                         autoComplete='off'
                                         placeholder='Amount'
+                                        onChange={updateState}
                                     />
                                     <label htmlFor='btcAmount'>Amount</label>
                                 </div>
@@ -54,6 +59,7 @@ function Bitcoin() {
                                     name='item_name'
                                     autoComplete='off'
                                     placeholder='Item Name'
+                                    onChange={updateState}
                                 />
                                 <label htmlFor='itemName'>Item Name</label>
                             </div>
@@ -68,6 +74,7 @@ function Bitcoin() {
                                     name='message'
                                     autoComplete='off'
                                     placeholder='Message'
+                                    onChange={updateState}
                                 />
                                 <label htmlFor='message'>Message</label>
                             </div>

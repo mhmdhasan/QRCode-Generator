@@ -1,15 +1,66 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'leaflet/dist/leaflet.js';
 import 'esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css';
 import 'esri-leaflet-geocoder/dist/esri-leaflet-geocoder.js';
-import { createMap } from '../../utils/helpers';
+// import { createMap } from '../../utils/helpers';
 import { FaMapMarkerAlt } from 'react-icons/fa';
+import { useAppContext } from '../../context/app_context';
+import L, { Marker } from 'leaflet';
+import * as ELG from 'esri-leaflet-geocoder';
 
 function Location() {
+    const { form_fields } = useAppContext();
+    const [latitude, setLatitude] = useState(0);
+    const [longitude, setLongitude] = useState(0);
+
+    form_fields.map_latitude = latitude;
+    form_fields.map_longitude = longitude;
+
     useEffect(() => {
+        var leafletIcon = L.icon({
+            iconUrl: 'img/location.png',
+        });
+        Marker.prototype.options.icon = leafletIcon;
+
+        function createMap() {
+            var tileLayer = new L.TileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+                attribution:
+                    '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+            });
+
+            var map = new L.Map('map', {
+                center: [51.441767, 5.480247],
+                zoom: 12,
+                layers: [tileLayer],
+            });
+
+            var marker = L.marker([51.441767, 5.470247], {
+                draggable: true,
+            }).addTo(map);
+
+            marker.on('dragend', function (e) {
+                document.getElementById('latitude').value = marker.getLatLng().lat;
+                document.getElementById('longitude').value = marker.getLatLng().lng;
+                setLatitude(marker.getLatLng().lat);
+                setLongitude(marker.getLatLng().lng);
+            });
+
+            const searchControl = new ELG.Geosearch().addTo(map);
+
+            var results = new L.LayerGroup().addTo(map);
+
+            searchControl.on('results', function (data) {
+                results.clearLayers();
+                for (var i = data.results.length - 1; i >= 0; i--) {
+                    results.addLayer(L.marker(data.results[i].latlng));
+                }
+            });
+        }
+
         createMap();
     }, []);
 
+    console.log(latitude);
     return (
         <div className='card pt-4 mb-5'>
             <div className='card-body'>
@@ -30,6 +81,7 @@ function Location() {
                                     name='map_latitude'
                                     autoComplete='off'
                                     placeholder='Latitude'
+                                    value={latitude}
                                 />
                                 <label htmlFor='latitude'>Latitude</label>
                             </div>
@@ -42,6 +94,7 @@ function Location() {
                                     type='number'
                                     name='map_longitude'
                                     autoComplete='off'
+                                    value={longitude}
                                     placeholder='Longitude'
                                 />
                                 <label htmlFor='longitude'>Longitude</label>

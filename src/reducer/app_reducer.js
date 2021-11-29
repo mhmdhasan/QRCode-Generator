@@ -22,9 +22,9 @@ export function reducer(state, action) {
             ...state,
             form_type: 'email',
             form_fields: {
-                send_to: '',
-                subject: '',
-                text: '',
+                email_address: '',
+                email_subject: '',
+                email_text: '',
             },
         };
     }
@@ -33,7 +33,8 @@ export function reducer(state, action) {
             ...state,
             form_type: 'location',
             form_fields: {
-                url: '',
+                map_latitude: 'testing',
+                map_longitude: 'testing',
             },
         };
     }
@@ -42,7 +43,8 @@ export function reducer(state, action) {
             ...state,
             form_type: 'phone',
             form_fields: {
-                url: '',
+                country_code: '',
+                phone_number: '',
             },
         };
     }
@@ -51,7 +53,9 @@ export function reducer(state, action) {
             ...state,
             form_type: 'sms',
             form_fields: {
-                url: '',
+                country_code: '',
+                phone_number: '',
+                text_message: '',
             },
         };
     }
@@ -60,7 +64,10 @@ export function reducer(state, action) {
             ...state,
             form_type: 'wifi',
             form_fields: {
-                url: '',
+                network_name: '',
+                network_type: '',
+                network_password: '',
+                network_visibilty: false,
             },
         };
     }
@@ -69,7 +76,26 @@ export function reducer(state, action) {
             ...state,
             form_type: 'vcard',
             form_fields: {
-                url: '',
+                vcard_version: '',
+                vcard_title: '',
+                vcard_firstname: '',
+                vcard_lastname: '',
+                home_country_code: '',
+                vcard_phone_home: '',
+                mobile_country_code: '',
+                vcard_phone_mobile: '',
+                vcard_email: '',
+                vcard_website: '',
+                vcard_job: '',
+                office_country_code: '',
+                vcard_phone_office: '',
+                fax_country_code: '',
+                vcard_phone_fax: '',
+                vcard_address: '',
+                vcard_postcode: '',
+                vcard_city: '',
+                vcard_state: '',
+                vcard_country: '',
             },
         };
     }
@@ -78,7 +104,13 @@ export function reducer(state, action) {
             ...state,
             form_type: 'event',
             form_fields: {
-                url: '',
+                event_title: '',
+                event_location: '',
+                event_start_time: '',
+                event_end_time: '',
+                event_reminder: '',
+                event_link: '',
+                event_notes: '',
             },
         };
     }
@@ -87,9 +119,19 @@ export function reducer(state, action) {
             ...state,
             form_type: 'bitcoin',
             form_fields: {
-                url: '',
+                btc_account: '',
+                btc_amount: '',
+                item_name: '',
+                message: '',
             },
         };
+    }
+    if (action.type === 'UPDATE_STATE') {
+        const { name, value } = action.payload;
+        return { ...state, form_fields: { ...state.form_fields, [name]: value } };
+    }
+    if (action.type === 'UPDATE_COORDINATES') {
+        return { ...state, form_fields: { ...state.form_fields, map_latitude: action.payload.lat } };
     }
 
     throw new Error(`There's no matching ${action.type} - action type`);

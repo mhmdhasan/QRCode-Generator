@@ -1,7 +1,10 @@
 import React from 'react';
 import { FaLink } from 'react-icons/fa';
+import { useAppContext } from '../../context/app_context';
 
 function Link() {
+    const { updateState } = useAppContext();
+
     return (
         <div className='card pt-4 mb-5'>
             <div className='card-body'>
@@ -22,6 +25,7 @@ function Link() {
                                     name='url'
                                     autoComplete='off'
                                     placeholder='e.g. Jason@doe.com'
+                                    onChange={updateState}
                                 />
                                 <label htmlFor='url'>Url</label>
                             </div>

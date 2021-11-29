@@ -20,12 +20,14 @@ export function createMap() {
 
     var marker = L.marker([51.441767, 5.470247], {
         draggable: true,
-        // icon: leafletIcon,
     }).addTo(map);
 
     marker.on('dragend', function (e) {
+        document.getElementById('latitude').setAttribute('value', marker.getLatLng().lat);
         document.getElementById('latitude').value = marker.getLatLng().lat;
+        document.getElementById('longitude').setAttribute('value', marker.getLatLng().lng);
         document.getElementById('longitude').value = marker.getLatLng().lng;
+        console.log(document.getElementById('latitude').value);
     });
 
     const searchControl = new ELG.Geosearch().addTo(map);

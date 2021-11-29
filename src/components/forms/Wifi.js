@@ -69,7 +69,7 @@ function Wifi() {
                                 />
                                 <label
                                     className='form-check-label'
-                                    for='networkVisibility'
+                                    htmlFor='networkVisibility'
                                     style={{ paddingTop: '0.1rem' }}
                                 >
                                     Hidden

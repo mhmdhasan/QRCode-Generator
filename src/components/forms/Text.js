@@ -1,7 +1,9 @@
 import React from 'react';
 import { FaTextHeight } from 'react-icons/fa';
+import { useAppContext } from '../../context/app_context';
 
 function Text() {
+    const { updateState } = useAppContext();
     return (
         <div className='card pt-4 mb-5'>
             <div className='card-body'>
@@ -22,6 +24,7 @@ function Text() {
                                     name='text'
                                     autoComplete='off'
                                     placeholder='Add your text'
+                                    onChange={updateState}
                                 />
                                 <label htmlFor='text'>Text</label>
                             </div>

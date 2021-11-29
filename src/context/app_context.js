@@ -2,7 +2,7 @@ import React, { useContext, useReducer } from 'react';
 import { reducer } from '../reducer/app_reducer';
 
 // Reducer Functionalitiy
-const initialState = {
+export const initialState = {
     form_type: 'link',
     form_fields: {
         url: '',
@@ -49,7 +49,13 @@ export function AppProvider({ children }) {
         }
     }
 
-    return <AppContext.Provider value={{ ...state, handleCodeType }}>{children}</AppContext.Provider>;
+    function updateState(e) {
+        let name = e.target.name;
+        let value = e.target.value;
+        dispatch({ type: 'UPDATE_STATE', payload: { name, value } });
+    }
+
+    return <AppContext.Provider value={{ ...state, handleCodeType, updateState }}>{children}</AppContext.Provider>;
 }
 
 export function useAppContext() {

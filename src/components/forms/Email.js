@@ -1,7 +1,9 @@
 import React from 'react';
 import { FaRegEnvelope } from 'react-icons/fa';
+import { useAppContext } from '../../context/app_context';
 
 function Email() {
+    const { updateState } = useAppContext();
     return (
         <div className='card pt-4 mb-5'>
             <div className='card-body'>
@@ -18,10 +20,11 @@ function Email() {
                                 <input
                                     className='form-control'
                                     id='email'
-                                    type='text'
+                                    type='email'
                                     name='email_address'
                                     autoComplete='off'
                                     placeholder='e.g. Jason@doe.com'
+                                    onChange={updateState}
                                 />
                                 <label htmlFor='email'>Send to</label>
                             </div>
@@ -35,6 +38,7 @@ function Email() {
                                     name='email_subject'
                                     autoComplete='off'
                                     placeholder='Type email subject'
+                                    onChange={updateState}
                                 />
                                 <label htmlFor='subject'>Subject</label>
                             </div>
@@ -47,6 +51,7 @@ function Email() {
                                     name='email_text'
                                     autoComplete='off'
                                     placeholder='Add email text body'
+                                    onChange={updateState}
                                 ></textarea>
                                 <label htmlFor='message'>Message</label>
                             </div>
