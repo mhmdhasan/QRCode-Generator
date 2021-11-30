@@ -82,8 +82,8 @@ function Vcard() {
                         </div>
 
                         <div className='col-lg-6'>
-                            <div className='input-group flex-nowrap'>
-                                <div className='form-floating px-0'>
+                            <div className='input-group flex-xl-nowrap'>
+                                <div className='form-floating w-100 w-xl-auto px-0'>
                                     <select
                                         className='form-select'
                                         id='homeCountryCode'
@@ -102,7 +102,7 @@ function Vcard() {
                                     </select>
                                     <label htmlFor='homeCountryCode'>+00</label>
                                 </div>
-                                <div className='form-floating flex-grow-1'>
+                                <div className='form-floating flex-grow-1 ms-0'>
                                     <input
                                         className='form-control'
                                         id='vcardPhoneHome'
@@ -118,8 +118,8 @@ function Vcard() {
                         </div>
 
                         <div className='col-lg-6'>
-                            <div className='input-group flex-nowrap'>
-                                <div className='form-floating px-0'>
+                            <div className='input-group flex-xl-nowrap'>
+                                <div className='form-floating w-100 w-xl-auto px-0'>
                                     <select
                                         className='form-select'
                                         id='mobileCountryCode'
@@ -138,7 +138,7 @@ function Vcard() {
                                     </select>
                                     <label htmlFor='mobileCountryCode'>+00</label>
                                 </div>
-                                <div className='form-floating flex-grow-1'>
+                                <div className='form-floating flex-grow-1 ms-0'>
                                     <input
                                         className='form-control'
                                         id='vcardPhoneMobile'
@@ -214,8 +214,8 @@ function Vcard() {
                         </div>
 
                         <div className='col-lg-6'>
-                            <div className='input-group flex-nowrap'>
-                                <div className='form-floating px-0'>
+                            <div className='input-group flex-xl-nowrap'>
+                                <div className='form-floating w-100 w-xl-auto'>
                                     <select
                                         className='form-select'
                                         id='officeCountryCode'
@@ -234,7 +234,7 @@ function Vcard() {
                                     </select>
                                     <label htmlFor='officeCountryCode'>+00</label>
                                 </div>
-                                <div className='form-floating flex-grow-1'>
+                                <div className='form-floating flex-grow-1 ms-0'>
                                     <input
                                         className='form-control'
                                         id='vcardPhoneOffice'
@@ -250,8 +250,8 @@ function Vcard() {
                         </div>
 
                         <div className='col-lg-6'>
-                            <div className='input-group flex-nowrap'>
-                                <div className='form-floating px-0'>
+                            <div className='input-group flex-xl-nowrap'>
+                                <div className='form-floating w-100 w-xl-auto px-0'>
                                     <select
                                         className='form-select'
                                         id='faxCountryCode'
@@ -270,7 +270,7 @@ function Vcard() {
                                     </select>
                                     <label htmlFor='faxCountryCode'>+00</label>
                                 </div>
-                                <div className='form-floating flex-grow-1'>
+                                <div className='form-floating flex-grow-1 ms-0'>
                                     <input
                                         className='form-control'
                                         id='vcardPhoneFax'

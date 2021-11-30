@@ -12234,3 +12234,13 @@ STYLE SWITCHER FOR DEMO
         border-top-right-radius: 0 !important
     }
 } 
+
+@media (min-width: 1200px) {
+    .w-xl-auto {
+        width: auto !important;
+    }
+} 
+
+section {
+    overflow: hidden;
+}

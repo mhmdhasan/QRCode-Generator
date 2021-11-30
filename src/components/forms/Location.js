@@ -9,8 +9,8 @@ import * as ELG from 'esri-leaflet-geocoder';
 
 function Location() {
     const { form_fields, updateState } = useAppContext();
-    const [latitude, setLatitude] = useState(0);
-    const [longitude, setLongitude] = useState(0);
+    const [latitude, setLatitude] = useState(51.441767);
+    const [longitude, setLongitude] = useState(5.480247);
 
     useEffect(() => {
         var leafletIcon = L.icon({
