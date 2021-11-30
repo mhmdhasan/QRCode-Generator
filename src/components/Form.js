@@ -16,7 +16,11 @@ function Form() {
     if (form_type === 'vcard') return <Vcard />;
     if (form_type === 'event') return <Event />;
 
-    return <>No forms</>;
+    return (
+        <>
+            <h2 className='py-4 text-center'>Oops! Something went wrong</h2>
+        </>
+    );
 }
 
 export default Form;

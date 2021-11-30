@@ -33,7 +33,7 @@ function Bitcoin() {
                         </div>
 
                         <div className='col-lg-6'>
-                            <div className='input-group'>
+                            <div className='input-group flex-nowrap'>
                                 <div className='form-floating flex-grow-1'>
                                     <input
                                         className='form-control'

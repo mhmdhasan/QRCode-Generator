@@ -8,13 +8,17 @@ import L, { Marker } from 'leaflet';
 import * as ELG from 'esri-leaflet-geocoder';
 
 function Location() {
-    const { form_fields } = useAppContext();
+    const { form_fields, updateState } = useAppContext();
     const [latitude, setLatitude] = useState(0);
     const [longitude, setLongitude] = useState(0);
 
     useEffect(() => {
         var leafletIcon = L.icon({
             iconUrl: 'img/location.png',
+            shadowUrl: 'img/map-shadow.png',
+            shadowAnchor: [20, -15],
+            shadowSize: [40, 15],
+            iconSize: [46, 46],
         });
         Marker.prototype.options.icon = leafletIcon;
 
@@ -80,7 +84,7 @@ function Location() {
                                     name='map_latitude'
                                     autoComplete='off'
                                     placeholder='Latitude'
-                                    onChange={setLatitude}
+                                    onChange={updateState}
                                     value={latitude}
                                 />
                                 <label htmlFor='latitude'>Latitude</label>
@@ -95,7 +99,7 @@ function Location() {
                                     name='map_longitude'
                                     autoComplete='off'
                                     value={longitude}
-                                    onChange={setLongitude}
+                                    onChange={updateState}
                                     placeholder='Longitude'
                                 />
                                 <label htmlFor='longitude'>Longitude</label>

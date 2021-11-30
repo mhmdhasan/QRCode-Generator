@@ -4,9 +4,9 @@ import { MdQrCode } from 'react-icons/md';
 
 function Hero() {
     return (
-        <section className='p-4 p-lg-5'>
-            <div className='container'>
-                <div className='rounded-lg p-4 p-lg-5 bg-dark text-white position-relative'>
+        <section className='pb-5 pt-sm-5 px-sm-5'>
+            <div className='container px-0 px-lg-3'>
+                <div className='rounded-lg no-rounded-sm p-4 p-lg-5 bg-dark text-white position-relative'>
                     <div className='row p-4 p-lg-5 gy-4'>
                         <div className='col-xl-9'>
                             <div className='d-flex flex-column flex-lg-row'>

@@ -12227,3 +12227,10 @@ STYLE SWITCHER FOR DEMO
 }
 
 @import '~leaflet/dist/leaflet.css';
+
+@media (max-width: 576px) {
+    .no-rounded-sm {
+        border-top-left-radius: 0 !important;
+        border-top-right-radius: 0 !important
+    }
+} 

@@ -82,7 +82,7 @@ function Vcard() {
                         </div>
 
                         <div className='col-lg-6'>
-                            <div className='input-group'>
+                            <div className='input-group flex-nowrap'>
                                 <div className='form-floating px-0'>
                                     <select
                                         className='form-select'
@@ -118,7 +118,7 @@ function Vcard() {
                         </div>
 
                         <div className='col-lg-6'>
-                            <div className='input-group'>
+                            <div className='input-group flex-nowrap'>
                                 <div className='form-floating px-0'>
                                     <select
                                         className='form-select'
@@ -214,7 +214,7 @@ function Vcard() {
                         </div>
 
                         <div className='col-lg-6'>
-                            <div className='input-group'>
+                            <div className='input-group flex-nowrap'>
                                 <div className='form-floating px-0'>
                                     <select
                                         className='form-select'
@@ -250,7 +250,7 @@ function Vcard() {
                         </div>
 
                         <div className='col-lg-6'>
-                            <div className='input-group'>
+                            <div className='input-group flex-nowrap'>
                                 <div className='form-floating px-0'>
                                     <select
                                         className='form-select'

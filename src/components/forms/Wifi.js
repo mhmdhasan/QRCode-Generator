@@ -3,7 +3,13 @@ import { MdWifi } from 'react-icons/md';
 import { useAppContext } from '../../context/app_context';
 
 function Wifi() {
-    const { updateState } = useAppContext();
+    const { updateState, form_fields } = useAppContext();
+
+    function handleInputChange(e) {
+        const value = e.target.name === 'network_visibilty' ? e.target.checked : e.target.value;
+        const name = e.target.name;
+        form_fields[name] = value;
+    }
 
     return (
         <div className='card pt-4 mb-5'>
@@ -73,6 +79,7 @@ function Wifi() {
                                     name='network_visibilty'
                                     id='networkVisibility'
                                     onChange={updateState}
+                                    onInput={handleInputChange}
                                 />
                                 <label
                                     className='form-check-label'
