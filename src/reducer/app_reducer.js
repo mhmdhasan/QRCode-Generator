@@ -130,6 +130,10 @@ export function reducer(state, action) {
         return { ...state, form_fields: { ...state.form_fields, [name]: value } };
     }
 
+    if (action.type === 'GET_CODE_IMAGE') {
+      return {...state, qrcode_image: action.payload}
+    }
+
     if (action.type === 'SHOW_LOADER') {
         return { ...state, preview_loader: true };
     }

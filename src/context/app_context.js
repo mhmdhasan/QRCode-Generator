@@ -1,5 +1,6 @@
 import React, { useContext, useReducer, useEffect } from 'react';
 import { reducer } from '../reducer/app_reducer';
+import Axios from 'axios'
 
 // Reducer Functionalitiy
 export const initialState = {
@@ -8,6 +9,7 @@ export const initialState = {
     form_fields: {
         url: 'https://ionichub.co',
     },
+    qrcode_image: ''
 };
 
 // Create the context
@@ -29,15 +31,26 @@ export function AppProvider({ children }) {
         codeRequest();
     }
 
+
+
     async function codeRequest() {
         dispatch({ type: 'SHOW_LOADER' });
         try {
-            const response = await fetch('https://dog.ceo/api/breeds/list/all');
-            console.log(state);
+            const response = await Axios.post('https://ionichub.co/api/qr-code');
+            const image = await response.data;
+            dispatch({type: 'GET_CODE_IMAGE', payload: image})
+            document.getElementById('imgPreview').innerHTML = response.data
             dispatch({ type: 'HIDE_LOADER' });
         } catch (err) {
             dispatch({ type: 'HIDE_LOADER' });
+            console.log(err)
         }
+    }
+
+    function stringToHTML(str){
+      let parser = new DOMParser();
+    	let doc = parser.parseFromString(str, 'text/html');
+    	return doc.body.querySelector('svg');
     }
 
     useEffect(() => {
