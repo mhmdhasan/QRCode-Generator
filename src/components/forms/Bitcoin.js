@@ -3,19 +3,20 @@ import { FaBitcoin } from 'react-icons/fa';
 import { useAppContext } from '../../context/app_context';
 
 function Bitcoin() {
-    const { updateState } = useAppContext();
+    const { updateState, form_fields } = useAppContext();
+    const { btc_account, btc_amount, item_name, message } = form_fields;
 
     return (
-        <div className='card pt-4 mb-5'>
-            <div className='card-body'>
-                <header className='d-flex align-items-center mb-4 form-header'>
+        <div className='card rounded-lg bdr-top-start-0 bdr-top-end-0 mb-5'>
+            <div className='card-body p-4 p-lg-5'>
+                <header className='d-flex align-items-center mb-4'>
                     <div className='icon me-2'>
                         <FaBitcoin size='0.9rem' />
                     </div>
                     <h5 className='mb-0'>Bitcoin</h5>
                 </header>
 
-                <form className='mb-4'>
+                <form>
                     <div className='row gy-3'>
                         <div className='col-lg-6'>
                             <div className='form-floating'>
@@ -26,6 +27,7 @@ function Bitcoin() {
                                     name='btc_account'
                                     autoComplete='off'
                                     placeholder='Acount'
+                                    value={btc_account}
                                     onChange={updateState}
                                 />
                                 <label htmlFor='btcAccount'>Acount</label>
@@ -42,6 +44,7 @@ function Bitcoin() {
                                         name='btc_amount'
                                         autoComplete='off'
                                         placeholder='Amount'
+                                        value={btc_amount}
                                         onChange={updateState}
                                     />
                                     <label htmlFor='btcAmount'>Amount</label>
@@ -59,6 +62,7 @@ function Bitcoin() {
                                     name='item_name'
                                     autoComplete='off'
                                     placeholder='Item Name'
+                                    value={item_name}
                                     onChange={updateState}
                                 />
                                 <label htmlFor='itemName'>Item Name</label>
@@ -74,6 +78,7 @@ function Bitcoin() {
                                     name='message'
                                     autoComplete='off'
                                     placeholder='Message'
+                                    value={message}
                                     onChange={updateState}
                                 />
                                 <label htmlFor='message'>Message</label>

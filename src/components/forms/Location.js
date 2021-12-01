@@ -43,6 +43,7 @@ function Location() {
                 document.getElementById('longitude').value = marker.getLatLng().lng;
                 setLatitude(marker.getLatLng().lat);
                 setLongitude(marker.getLatLng().lng);
+                updateState(e);
             });
 
             const searchControl = new ELG.Geosearch().addTo(map);
@@ -63,9 +64,8 @@ function Location() {
     form_fields.map_latitude = latitude;
     form_fields.map_longitude = longitude;
 
-    console.log(form_fields);
     return (
-        <div className='card pt-4 mb-5'>
+        <div className='card rounded-lg bdr-top-start-0 bdr-top-end-0 mb-5'>
             <div className='card-body'>
                 <header className='d-flex align-items-center mb-4 form-header'>
                     <div className='icon me-2'>

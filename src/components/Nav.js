@@ -8,25 +8,23 @@ function Nav() {
 
     return (
         <>
-            <nav className='options-nav'>
+            <nav className='options-nav mb-0'>
                 <ul className='list-inline options-nav-list px-lg-4'>
                     {types.map((type, index) => {
                         return (
                             <li className='list-inline-item mx-2' key={index}>
-                                <a
-                                    className={`nav-btn ${index === navItemIndex ? 'active' : null}`}
-                                    href='#!'
-                                    rel='noreferrer'
+                                <button
+                                    className={`nav-btn border-0 ${index === navItemIndex ? 'active' : ''}`}
+                                    type='button'
                                     title={type.text}
                                     onClick={(e) => {
-                                        e.preventDefault();
                                         setNavItemIndex(index);
                                         handleCodeType(e);
                                     }}
                                 >
                                     {type.icon}
                                     <p className='mb-0 text-capitalize'>{type.text}</p>
-                                </a>
+                                </button>
                             </li>
                         );
                     })}

@@ -3,10 +3,10 @@ import { FaLink } from 'react-icons/fa';
 import { useAppContext } from '../../context/app_context';
 
 function Link() {
-    const { updateState } = useAppContext();
+    const { updateState, form_fields } = useAppContext();
 
     return (
-        <div className='card pt-4 mb-5'>
+        <div className='card rounded-lg bdr-top-start-0 bdr-top-end-0 mb-5'>
             <div className='card-body'>
                 <header className='d-flex align-items-center mb-4 form-header'>
                     <div className='icon me-2'>
@@ -25,6 +25,7 @@ function Link() {
                                     name='url'
                                     autoComplete='off'
                                     placeholder='e.g. Jason@doe.com'
+                                    value={form_fields.url}
                                     onChange={updateState}
                                 />
                                 <label htmlFor='url'>Url</label>

@@ -3,9 +3,10 @@ import { FaTextHeight } from 'react-icons/fa';
 import { useAppContext } from '../../context/app_context';
 
 function Text() {
-    const { updateState } = useAppContext();
+    const { updateState, form_fields } = useAppContext();
+
     return (
-        <div className='card pt-4 mb-5'>
+        <div className='card rounded-lg bdr-top-start-0 bdr-top-end-0 mb-5'>
             <div className='card-body'>
                 <header className='d-flex align-items-center mb-4 form-header'>
                     <div className='icon me-2'>
@@ -24,6 +25,7 @@ function Text() {
                                     name='text'
                                     autoComplete='off'
                                     placeholder='Add your text'
+                                    value={form_fields.text}
                                     onChange={updateState}
                                 />
                                 <label htmlFor='text'>Text</label>

@@ -4,6 +4,7 @@ import { useAppContext } from '../../context/app_context';
 
 function Wifi() {
     const { updateState, form_fields } = useAppContext();
+    const { network_name, network_type, network_password, network_visibilty } = form_fields;
 
     function handleInputChange(e) {
         const value = e.target.name === 'network_visibilty' ? e.target.checked : e.target.value;
@@ -12,7 +13,7 @@ function Wifi() {
     }
 
     return (
-        <div className='card pt-4 mb-5'>
+        <div className='card rounded-lg bdr-top-start-0 bdr-top-end-0 mb-5'>
             <div className='card-body'>
                 <header className='d-flex align-items-center mb-4 form-header'>
                     <div className='icon me-2'>
@@ -32,6 +33,7 @@ function Wifi() {
                                     name='network_name'
                                     autoComplete='off'
                                     placeholder='Network Name'
+                                    value={network_name}
                                     onChange={updateState}
                                 />
                                 <label htmlFor='networkName'>Network Name</label>
@@ -46,6 +48,7 @@ function Wifi() {
                                     name='network_type'
                                     autoComplete='off'
                                     placeholder='Newtwork Type'
+                                    value={network_type}
                                     onChange={updateState}
                                 >
                                     <option value='WEP'>WEP</option>
@@ -65,6 +68,7 @@ function Wifi() {
                                     name='network_password'
                                     autoComplete='off'
                                     placeholder='Network Password'
+                                    value={network_password}
                                     onChange={updateState}
                                 />
                                 <label htmlFor='networkPassword'>Network Password</label>
@@ -78,8 +82,8 @@ function Wifi() {
                                     type='checkbox'
                                     name='network_visibilty'
                                     id='networkVisibility'
-                                    onChange={updateState}
-                                    onInput={handleInputChange}
+                                    checked={network_visibilty}
+                                    onChange={handleInputChange}
                                 />
                                 <label
                                     className='form-check-label'

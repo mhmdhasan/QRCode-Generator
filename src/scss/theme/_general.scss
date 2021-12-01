@@ -1,0 +1,208 @@
+/*
+* 
+* =====================
+* GENERAL
+* =====================
+*
+*/
+body {
+    overflow-x: hidden;
+}
+
+.card {
+    position: relative;
+}
+
+.btn {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    &-primary {
+        color: white;
+        &:hover,
+        &:focus {
+            color: white;
+        }
+    }
+}
+
+.form-control {
+    // border: none;
+    // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+    &::placeholder {
+        font-size: 0.95rem;
+        font-weight: $font-weight-normal;
+        color: $gray-600;
+        font-family: $font-family-sans-serif;
+    }
+}
+
+.options-nav {
+    position: relative;
+    margin-bottom: 5rem;
+    &::before {
+        content: '';
+        width: 100%;
+        height: calc(100% - 2rem);
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(3rem);
+        background: $card-bg;
+        border-radius: 1rem 1rem 0 0;
+    }
+
+    &-list {
+        position: relative;
+        z-index: 20;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    li {
+        @include media-breakpoint-up(lg) {
+            width: calc(20% - 1rem);
+        }
+    }
+}
+
+.nav-btn {
+    color: $gray-800;
+    text-decoration: none;
+    transition: all 0.3s;
+    background: white;
+    text-align: center;
+    width: 8.5rem;
+    height: 6rem;
+    border-radius: $card-border-radius;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    box-shadow: $box-shadow;
+    color: $gray-600;
+
+    @include media-breakpoint-up(lg) {
+        width: 100%;
+    }
+
+    i {
+        font-size: 1.3rem;
+    }
+    p {
+        font-size: 0.9rem;
+    }
+
+    &:hover,
+    &.active {
+        background: $dark !important;
+        color: white;
+        transform: translateY(-0.3rem);
+        box-shadow: 0 0.5rem 2rem rgba($black, 0.2);
+    }
+}
+
+.icon {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $dark;
+    color: white;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 2px rgba($dark, 0.2);
+}
+
+input[type='color'] {
+    min-height: 3rem;
+}
+
+.nav-pills {
+    position: relative;
+    margin-bottom: 0;
+
+    .nav-link {
+        color: $gray-800;
+        text-decoration: none;
+        transition: all 0.3s;
+        background: white;
+        text-align: center;
+        width: 7rem;
+        height: 6rem;
+        border-radius: $card-border-radius;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        box-shadow: $box-shadow;
+        color: $gray-600;
+
+        i {
+            font-size: 1.3rem;
+        }
+
+        &:hover,
+        &.active {
+            background: $dark !important;
+            color: white;
+            box-shadow: 0 0.5rem 2rem rgba($black, 0.2);
+        }
+    }
+
+    &::before {
+        content: '';
+        width: 100%;
+        height: calc(100% - 2rem);
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(3rem);
+        background: $card-bg;
+        border-radius: 1rem 1rem 0 0;
+    }
+
+    .nav-item {
+        position: relative;
+        z-index: 20;
+    }
+}
+
+.no {
+    font-size: 4rem;
+    font-family: $headings-font-family;
+    font-weight: $headings-font-weight;
+}
+
+.form-floating {
+    label {
+        color: $gray-500 !important;
+    }
+    textarea {
+        min-height: 9rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .no-rounded-sm {
+        border-top-left-radius: 0 !important;
+        border-top-right-radius: 0 !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .w-xl-auto {
+        width: auto !important;
+    }
+}
+
+section {
+    overflow: hidden;
+}

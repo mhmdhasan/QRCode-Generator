@@ -4,10 +4,11 @@ import { FaPhoneAlt } from 'react-icons/fa';
 import { useAppContext } from '../../context/app_context';
 
 function Phone() {
-    const { updateState } = useAppContext();
+    const { updateState, form_fields } = useAppContext();
+    const { country_code, phone_number } = form_fields;
 
     return (
-        <div className='card pt-4 mb-5'>
+        <div className='card rounded-lg bdr-top-start-0 bdr-top-end-0 mb-5'>
             <div className='card-body'>
                 <header className='d-flex align-items-center mb-4 form-header'>
                     <div className='icon me-2'>
@@ -25,6 +26,7 @@ function Phone() {
                                     name='country_code'
                                     autoComplete='off'
                                     placeholder='Country Code'
+                                    value={country_code}
                                     onChange={updateState}
                                 >
                                     {countryCodes.map((code, index) => {
@@ -47,6 +49,7 @@ function Phone() {
                                     name='phone_number'
                                     autoComplete='off'
                                     placeholder='Phone Number'
+                                    value={phone_number}
                                     onChange={updateState}
                                 />
                                 <label htmlFor='phone'>Phone Number</label>

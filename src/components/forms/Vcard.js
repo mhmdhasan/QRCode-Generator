@@ -4,10 +4,33 @@ import { countryCodes } from '../../utils/country_codes.js';
 import { useAppContext } from '../../context/app_context';
 
 function Vcard() {
-    const { updateState } = useAppContext();
+    const { updateState, form_fields } = useAppContext();
+    const {
+        vcard_version,
+        vcard_title,
+        vcard_email,
+        vcard_firstname,
+        vcard_lastname,
+        home_country_code,
+        vcard_phone_home,
+        mobile_country_code,
+        vcard_phone_mobile,
+        vcard_website,
+        vcard_company,
+        vcard_job,
+        office_country_code,
+        vcard_phone_office,
+        fax_country_code,
+        vcard_phone_fax,
+        vcard_address,
+        vcard_postcode,
+        vcard_city,
+        vcard_state,
+        vcard_country,
+    } = form_fields;
 
     return (
-        <div className='card pt-4 mb-5'>
+        <div className='card rounded-lg bdr-top-start-0 bdr-top-end-0 mb-5'>
             <div className='card-body'>
                 <header className='d-flex align-items-center mb-4 form-header'>
                     <div className='icon me-2'>
@@ -27,6 +50,7 @@ function Vcard() {
                                     name='vcard_version'
                                     autoComplete='off'
                                     placeholder='Version'
+                                    value={vcard_version}
                                     onChange={updateState}
                                 >
                                     <option value='2.1'>2.1</option>
@@ -45,6 +69,7 @@ function Vcard() {
                                     name='vcard_title'
                                     autoComplete='off'
                                     placeholder='Title'
+                                    value={vcard_title}
                                     onChange={updateState}
                                 />
                                 <label htmlFor='vcardTitle'>Title</label>
@@ -60,6 +85,7 @@ function Vcard() {
                                     name='vcard_firstname'
                                     autoComplete='off'
                                     placeholder='Firs Name'
+                                    value={vcard_firstname}
                                     onChange={updateState}
                                 />
                                 <label htmlFor='vcardFirstname'>Firs Name</label>
@@ -75,6 +101,7 @@ function Vcard() {
                                     name='vcard_lastname'
                                     autoComplete='off'
                                     placeholder='Last Name'
+                                    value={vcard_lastname}
                                     onChange={updateState}
                                 />
                                 <label htmlFor='vcardLastname'>Last Name</label>
@@ -90,6 +117,7 @@ function Vcard() {
                                         name='home_country_code'
                                         autoComplete='off'
                                         placeholder='Country Code'
+                                        value={home_country_code}
                                         onChange={updateState}
                                     >
                                         {countryCodes.map((code, index) => {
@@ -110,6 +138,7 @@ function Vcard() {
                                         name='vcard_phone_home'
                                         autoComplete='off'
                                         placeholder='Phone (home)'
+                                        value={vcard_phone_home}
                                         onChange={updateState}
                                     />
                                     <label htmlFor='vcardPhoneHome'>Phone (home)</label>
@@ -126,6 +155,7 @@ function Vcard() {
                                         name='mobile_country_code'
                                         autoComplete='off'
                                         placeholder='Country Code'
+                                        value={mobile_country_code}
                                         onChange={updateState}
                                     >
                                         {countryCodes.map((code, index) => {
@@ -146,6 +176,7 @@ function Vcard() {
                                         name='vcard_phone_mobile'
                                         autoComplete='off'
                                         placeholder='Phone (mobile)'
+                                        value={vcard_phone_mobile}
                                         onChange={updateState}
                                     />
                                     <label htmlFor='vcardPhoneMobile'>Phone (mobile)</label>
@@ -162,6 +193,7 @@ function Vcard() {
                                     name='vcard_email'
                                     autoComplete='off'
                                     placeholder='Email'
+                                    value={vcard_email}
                                     onChange={updateState}
                                 />
                                 <label htmlFor='vcardEmail'>Email</label>
@@ -177,6 +209,7 @@ function Vcard() {
                                     name='vcard_website'
                                     autoComplete='off'
                                     placeholder='http://'
+                                    value={vcard_website}
                                     onChange={updateState}
                                 />
                                 <label htmlFor='vcardWebsite'>Website (URL)</label>
@@ -192,6 +225,7 @@ function Vcard() {
                                     name='vcard_company'
                                     autoComplete='off'
                                     placeholder='http://'
+                                    value={vcard_company}
                                     onChange={updateState}
                                 />
                                 <label htmlFor='vcardCompany'>Company</label>
@@ -207,6 +241,7 @@ function Vcard() {
                                     name='vcard_job'
                                     autoComplete='off'
                                     placeholder='Job Title'
+                                    value={vcard_job}
                                     onChange={updateState}
                                 />
                                 <label htmlFor='vcardJobTitle'>Job Title</label>
@@ -222,6 +257,7 @@ function Vcard() {
                                         name='office_country_code'
                                         autoComplete='off'
                                         placeholder='Country Code'
+                                        value={office_country_code}
                                         onChange={updateState}
                                     >
                                         {countryCodes.map((code, index) => {
@@ -242,6 +278,7 @@ function Vcard() {
                                         name='vcard_phone_office'
                                         autoComplete='off'
                                         placeholder='Phone (office)'
+                                        value={vcard_phone_office}
                                         onChange={updateState}
                                     />
                                     <label htmlFor='vcardPhoneOffice'>Phone (office)</label>
@@ -258,6 +295,7 @@ function Vcard() {
                                         name='fax_country_code'
                                         autoComplete='off'
                                         placeholder='Country Code'
+                                        value={fax_country_code}
                                         onChange={updateState}
                                     >
                                         {countryCodes.map((code, index) => {
@@ -278,6 +316,7 @@ function Vcard() {
                                         name='vcard_phone_fax'
                                         autoComplete='off'
                                         placeholder='Phone (fax)'
+                                        value={vcard_phone_fax}
                                         onChange={updateState}
                                     />
                                     <label htmlFor='vcardPhoneFax'>Phone (fax)</label>
@@ -293,6 +332,7 @@ function Vcard() {
                                     name='vcard_address'
                                     autoComplete='off'
                                     placeholder='Address'
+                                    value={vcard_address}
                                     onChange={updateState}
                                     style={{ minHeight: '5rem' }}
                                 ></textarea>
@@ -309,6 +349,7 @@ function Vcard() {
                                     name='vcard_postcode'
                                     autoComplete='off'
                                     placeholder='Post Code'
+                                    value={vcard_postcode}
                                     onChange={updateState}
                                 />
                                 <label htmlFor='vcardPostCode'>Post Code</label>
@@ -324,6 +365,7 @@ function Vcard() {
                                     name='vcard_city'
                                     autoComplete='off'
                                     placeholder='City'
+                                    value={vcard_city}
                                     onChange={updateState}
                                 />
                                 <label htmlFor='vcardCity'>City</label>
@@ -339,6 +381,7 @@ function Vcard() {
                                     name='vcard_state'
                                     autoComplete='off'
                                     placeholder='State'
+                                    value={vcard_state}
                                     onChange={updateState}
                                 />
                                 <label htmlFor='vcardState'>State</label>
@@ -354,6 +397,7 @@ function Vcard() {
                                     name='vcard_country'
                                     autoComplete='off'
                                     placeholder='Country'
+                                    value={vcard_country}
                                     onChange={updateState}
                                 />
                                 <label htmlFor='vcardCountry'>Country</label>

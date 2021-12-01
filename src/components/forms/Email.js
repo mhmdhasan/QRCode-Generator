@@ -3,9 +3,11 @@ import { FaRegEnvelope } from 'react-icons/fa';
 import { useAppContext } from '../../context/app_context';
 
 function Email() {
-    const { updateState } = useAppContext();
+    const { updateState, form_fields } = useAppContext();
+    const { email_address, email_subject, email_text } = form_fields;
+
     return (
-        <div className='card pt-4 mb-5'>
+        <div className='card rounded-lg bdr-top-start-0 bdr-top-end-0 mb-5'>
             <div className='card-body'>
                 <header className='d-flex align-items-center mb-4 form-header'>
                     <div className='icon me-2'>
@@ -24,6 +26,7 @@ function Email() {
                                     name='email_address'
                                     autoComplete='off'
                                     placeholder='e.g. Jason@doe.com'
+                                    value={email_address}
                                     onChange={updateState}
                                 />
                                 <label htmlFor='email'>Send to</label>
@@ -38,6 +41,7 @@ function Email() {
                                     name='email_subject'
                                     autoComplete='off'
                                     placeholder='Type email subject'
+                                    value={email_subject}
                                     onChange={updateState}
                                 />
                                 <label htmlFor='subject'>Subject</label>
@@ -51,6 +55,7 @@ function Email() {
                                     name='email_text'
                                     autoComplete='off'
                                     placeholder='Add email text body'
+                                    value={email_text}
                                     onChange={updateState}
                                 ></textarea>
                                 <label htmlFor='message'>Message</label>
