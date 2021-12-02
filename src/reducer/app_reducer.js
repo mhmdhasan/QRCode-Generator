@@ -130,8 +130,38 @@ export function reducer(state, action) {
         return { ...state, form_fields: { ...state.form_fields, [name]: value } };
     }
 
+    if (action.type === 'UPDATE_GRADIENT_STATE') {
+        const { name, value } = action.payload;
+        return { ...state, gradient: { ...state.gradient, [name]: value } };
+    }
+
+    if (action.type === 'UPDATE_DIMESNIONS_STATE') {
+        const { name, value } = action.payload;
+        return { ...state, dimensions: { ...state.dimensions, [name]: value } };
+    }
+
+    if (action.type === 'UPDATE_LOGO_STATE') {
+        return { ...state, logo: action.payload };
+    }
+
+    if (action.type === 'REMOVE_LOGO_STATE') {
+        return { ...state, logo: null };
+    }
+
+    if (action.type === 'UPDATE_PATTERN_STATE') {
+        return { ...state, pattern: action.payload };
+    }
+
+    if (action.type === 'UPDATE_EYESTYLE_STATE') {
+        return { ...state, eye_style: action.payload };
+    }
+
+    if (action.type === 'UPDATE_EYE_POSITION_STATE') {
+        return { ...state, eye_number: action.payload };
+    }
+
     if (action.type === 'GET_CODE_IMAGE') {
-      return {...state, qrcode_image: action.payload}
+        return { ...state, qrcode_image: action.payload };
     }
 
     if (action.type === 'SHOW_LOADER') {

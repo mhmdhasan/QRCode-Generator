@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { IoMdDownload } from 'react-icons/io';
 import PreviewLoader from './PreviewLoader';
 import { useAppContext } from '../context/app_context';
-// import {stringToHTML} from '../utils/helpers.js'
 
 function Preview() {
-    const { preview_loader, qrcode_image } = useAppContext();
+    const { preview_loader } = useAppContext();
 
-
+    useEffect(() => {
+        if (document.querySelector('#imgPreview svg')) {
+            document.querySelector('#imgPreview svg').style.height = '100%';
+            document.querySelector('#imgPreview svg').style.width = '100%';
+        }
+    }, []);
 
     return (
         <div className='col-lg-3 order-2 order-lg-1'>
@@ -15,7 +19,7 @@ function Preview() {
                 <div className='card-body'>
                     <div className='preview-holder'>
                         {preview_loader ? <PreviewLoader /> : null}
-                        <div id="imgPreview"></div>  
+                        <div id='imgPreview'></div>
                     </div>
                     <button
                         className='btn btn-dark w-100'

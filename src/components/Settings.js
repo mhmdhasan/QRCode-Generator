@@ -2,7 +2,7 @@ import React from 'react';
 import { settingsNav } from '../utils/constants';
 import ColorSettings from './settings/ColorSettings';
 import DimensionsSettings from './settings/DimensionsSettings';
-import FrameSettings from './settings/FrameSettings';
+import DesignSettings from './settings/DesignSettings';
 import LogoSettings from './settings/LogoSettings';
 
 function Settings() {
@@ -40,7 +40,7 @@ function Settings() {
             >
                 <ColorSettings tabId={settingsNav[0].id} visibility='show active' />
                 <LogoSettings tabId={settingsNav[1].id} visibility='' />
-                <FrameSettings tabId={settingsNav[2].id} visibility='' />
+                <DesignSettings tabId={settingsNav[2].id} visibility='' />
                 <DimensionsSettings tabId={settingsNav[3].id} visibility='' />
             </div>
         </>

@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MdWifi } from 'react-icons/md';
 import { useAppContext } from '../../context/app_context';
 
 function Wifi() {
     const { updateState, form_fields } = useAppContext();
-    const { network_name, network_type, network_password, network_visibilty } = form_fields;
+    const { network_name, network_type, network_password } = form_fields;
+
+    const [checked, setChecked] = useState(true);
 
     function handleInputChange(e) {
-        const value = e.target.name === 'network_visibilty' ? e.target.checked : e.target.value;
-        const name = e.target.name;
-        form_fields[name] = value;
+        e.preventDefault();
+        setChecked(!checked);
+        updateState(e);
     }
+
+    form_fields.network_visibilty = checked;
 
     return (
         <div className='card rounded-lg bdr-top-start-0 bdr-top-end-0 mb-5'>
@@ -82,7 +86,7 @@ function Wifi() {
                                     type='checkbox'
                                     name='network_visibilty'
                                     id='networkVisibility'
-                                    checked={network_visibilty}
+                                    checked={checked}
                                     onChange={handleInputChange}
                                 />
                                 <label

@@ -1,15 +1,34 @@
 import React, { useContext, useReducer, useEffect } from 'react';
 import { reducer } from '../reducer/app_reducer';
-import Axios from 'axios'
+import Axios from 'axios';
 
 // Reducer Functionalitiy
 export const initialState = {
     form_type: 'link',
     preview_loader: false,
+    gradient: {
+        use_gradient: false,
+        gradient_direction: 'diagonal',
+        gradient_end_color: null,
+    },
+    colors: {
+        color: '',
+        background: '',
+        eye_inner_color: '',
+        eye_outer_color: '',
+    },
+    dimensions: {
+        size: 400,
+        error_correction: 'H',
+    },
+    pattern: 'square',
+    eye_style: 'square',
+    eye_number: 0,
+    logo: null,
     form_fields: {
         url: 'https://ionichub.co',
     },
-    qrcode_image: ''
+    qrcode_image: '',
 };
 
 // Create the context
@@ -31,33 +50,84 @@ export function AppProvider({ children }) {
         codeRequest();
     }
 
+    function updateGradientState(e) {
+        let name = e.target.name;
+        let value = e.target.value;
+        dispatch({ type: 'UPDATE_GRADIENT_STATE', payload: { name, value } });
+        codeRequest();
+    }
 
+    function updateDimensionsState(e) {
+        let name = e.target.name;
+        let value = e.target.value;
+        dispatch({ type: 'UPDATE_DIMESNIONS_STATE', payload: { name, value } });
+        codeRequest();
+    }
+
+    function updatePatternState(e) {
+        const temppattern = e.currentTarget.previousElementSibling.value;
+        dispatch({ type: 'UPDATE_PATTERN_STATE', payload: temppattern });
+        codeRequest();
+    }
+
+    function updateEyeStyleState(e) {
+        const tempStyle = e.currentTarget.previousElementSibling.value;
+        dispatch({ type: 'UPDATE_EYESTYLE_STATE', payload: tempStyle });
+        codeRequest();
+    }
+
+    function updateEyePosition(e) {
+        dispatch({ type: 'UPDATE_EYE_POSITION_STATE', payload: e.target.value });
+        codeRequest();
+    }
+
+    function updateLogo(e) {
+        const tempLogo = e.currentTarget.previousElementSibling.value;
+
+        if (tempLogo === 'no_logo') {
+            dispatch({ type: 'REMOVE_LOGO_STATE' });
+        } else {
+            dispatch({ type: 'UPDATE_LOGO_STATE', payload: tempLogo });
+        }
+        codeRequest();
+    }
 
     async function codeRequest() {
         dispatch({ type: 'SHOW_LOADER' });
         try {
             const response = await Axios.post('https://ionichub.co/api/qr-code');
             const image = await response.data;
-            dispatch({type: 'GET_CODE_IMAGE', payload: image})
-            document.getElementById('imgPreview').innerHTML = response.data
+            dispatch({ type: 'GET_CODE_IMAGE', payload: image });
+            document.getElementById('imgPreview').innerHTML = response.data;
             dispatch({ type: 'HIDE_LOADER' });
         } catch (err) {
             dispatch({ type: 'HIDE_LOADER' });
-            console.log(err)
+            console.log(err);
         }
-    }
-
-    function stringToHTML(str){
-      let parser = new DOMParser();
-    	let doc = parser.parseFromString(str, 'text/html');
-    	return doc.body.querySelector('svg');
     }
 
     useEffect(() => {
         codeRequest();
     }, []);
 
-    return <AppContext.Provider value={{ ...state, handleCodeType, updateState }}>{children}</AppContext.Provider>;
+    return (
+        <AppContext.Provider
+            value={{
+                ...state,
+                handleCodeType,
+                updateState,
+                codeRequest,
+                updateGradientState,
+                updateDimensionsState,
+                updateLogo,
+                updatePatternState,
+                updateEyeStyleState,
+                updateEyePosition,
+            }}
+        >
+            {children}
+        </AppContext.Provider>
+    );
 }
 
 export function useAppContext() {
