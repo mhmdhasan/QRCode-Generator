@@ -12,7 +12,7 @@ function LogoSettings({ tabId, visibility }) {
                 <header className='mb-3'>
                     <label className='form-label'>Choose Logo</label>
                 </header>
-                <div className='d-flex'>
+                <div className='d-flex flex-wrap'>
                     <div className='m-1'>
                         <input
                             type='radio'
