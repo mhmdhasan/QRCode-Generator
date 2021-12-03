@@ -16,7 +16,7 @@ function Bitcoin() {
                     <h5 className='mb-0'>Bitcoin</h5>
                 </header>
 
-                <form>
+                <form className='needs-validation' novalidation='true'>
                     <div className='row gy-3'>
                         <div className='col-lg-6'>
                             <div className='form-floating'>
@@ -27,8 +27,10 @@ function Bitcoin() {
                                     name='btc_account'
                                     autoComplete='off'
                                     placeholder='Acount'
+                                    pattern='.*\S+.*'
                                     value={btc_account}
-                                    onChange={updateState}
+                                    onInput={updateState}
+                                    required={true}
                                 />
                                 <label htmlFor='btcAccount'>Acount</label>
                             </div>
@@ -45,7 +47,7 @@ function Bitcoin() {
                                         autoComplete='off'
                                         placeholder='Amount'
                                         value={btc_amount}
-                                        onChange={updateState}
+                                        onInput={updateState}
                                     />
                                     <label htmlFor='btcAmount'>Amount</label>
                                 </div>
@@ -63,7 +65,7 @@ function Bitcoin() {
                                     autoComplete='off'
                                     placeholder='Item Name'
                                     value={item_name}
-                                    onChange={updateState}
+                                    onInput={updateState}
                                 />
                                 <label htmlFor='itemName'>Item Name</label>
                             </div>
@@ -79,7 +81,7 @@ function Bitcoin() {
                                     autoComplete='off'
                                     placeholder='Message'
                                     value={message}
-                                    onChange={updateState}
+                                    onInput={updateState}
                                 />
                                 <label htmlFor='message'>Message</label>
                             </div>

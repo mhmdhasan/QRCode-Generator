@@ -15,7 +15,7 @@ function Email() {
                     </div>
                     <h5 className='mb-0'>Email</h5>
                 </header>
-                <form>
+                <form className='needs-validation' novalidation='true'>
                     <div className='row gy-3'>
                         <div className='col-lg-6'>
                             <div className='form-floating'>
@@ -26,8 +26,10 @@ function Email() {
                                     name='email_address'
                                     autoComplete='off'
                                     placeholder='e.g. Jason@doe.com'
+                                    pattern='.*\S+.*'
                                     value={email_address}
-                                    onChange={updateState}
+                                    onInput={updateState}
+                                    required={true}
                                 />
                                 <label htmlFor='email'>Send to</label>
                             </div>
@@ -42,7 +44,7 @@ function Email() {
                                     autoComplete='off'
                                     placeholder='Type email subject'
                                     value={email_subject}
-                                    onChange={updateState}
+                                    onInput={updateState}
                                 />
                                 <label htmlFor='subject'>Subject</label>
                             </div>
@@ -56,7 +58,7 @@ function Email() {
                                     autoComplete='off'
                                     placeholder='Add email text body'
                                     value={email_text}
-                                    onChange={updateState}
+                                    onInput={updateState}
                                 ></textarea>
                                 <label htmlFor='message'>Message</label>
                             </div>

@@ -26,7 +26,7 @@ function Wifi() {
                     <h5 className='mb-0'>Wifi</h5>
                 </header>
 
-                <form className='mb-4'>
+                <form className='needs-validation' novalidation='true'>
                     <div className='row gy-3'>
                         <div className='col-lg-4'>
                             <div className='form-floating'>
@@ -37,8 +37,10 @@ function Wifi() {
                                     name='network_name'
                                     autoComplete='off'
                                     placeholder='Network Name'
+                                    pattern='.*\S+.*'
                                     value={network_name}
-                                    onChange={updateState}
+                                    onInput={updateState}
+                                    required={true}
                                 />
                                 <label htmlFor='networkName'>Network Name</label>
                             </div>
@@ -53,7 +55,8 @@ function Wifi() {
                                     autoComplete='off'
                                     placeholder='Newtwork Type'
                                     value={network_type}
-                                    onChange={updateState}
+                                    onInput={updateState}
+                                    required={true}
                                 >
                                     <option value='WEP'>WEP</option>
                                     <option value='WPA/WPA2'>WPA/WPA2</option>
@@ -73,7 +76,7 @@ function Wifi() {
                                     autoComplete='off'
                                     placeholder='Network Password'
                                     value={network_password}
-                                    onChange={updateState}
+                                    onInput={updateState}
                                 />
                                 <label htmlFor='networkPassword'>Network Password</label>
                             </div>

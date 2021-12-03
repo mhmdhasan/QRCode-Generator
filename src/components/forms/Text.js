@@ -14,19 +14,20 @@ function Text() {
                     </div>
                     <h5 className='mb-0'>text</h5>
                 </header>
-                <form>
+                <form className='needs-validation' novalidation='true'>
                     <div className='row gy-3'>
                         <div className='col-lg-12'>
                             <div className='form-floating'>
                                 <textarea
                                     className='form-control'
                                     id='text'
-                                    type='text'
                                     name='text'
                                     autoComplete='off'
                                     placeholder='Add your text'
+                                    pattern='.*\S+.*'
                                     value={form_fields.text}
-                                    onChange={updateState}
+                                    onInput={updateState}
+                                    required={true}
                                 />
                                 <label htmlFor='text'>Text</label>
                             </div>

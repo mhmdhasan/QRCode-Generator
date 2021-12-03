@@ -40,10 +40,10 @@ $blue: #0d6efd !default;
 $indigo: #6610f2 !default;
 $purple: #6f42c1 !default;
 $pink: #d63384 !default;
-$red: #dc3545 !default;
+$red: #dd4e5d !default;
 $orange: #fd7e14 !default;
 $yellow: #ffc107 !default;
-$green: #198754 !default;
+$green: #38a572 !default;
 $teal: #20c997 !default;
 $cyan: #0dcaf0 !default;
 // scss-docs-end color-variables
@@ -776,7 +776,7 @@ $btn-font-size-lg: $input-btn-font-size-lg !default;
 $btn-border-width: $input-btn-border-width !default;
 
 $btn-font-weight: $headings-font-weight !default;
-$btn-box-shadow: inset 0 1px 0 rgba($white, 0.15), 0 1px 1px rgba($black, 0.075) !default;
+$btn-box-shadow: none !default;
 $btn-focus-width: $input-btn-focus-width !default;
 $btn-focus-box-shadow: $input-btn-focus-box-shadow !default;
 $btn-disabled-opacity: 0.65 !default;
@@ -845,7 +845,7 @@ $input-disabled-border-color: null !default;
 $input-color: $body-color !default;
 $input-border-color: $gray-300 !default;
 $input-border-width: $input-btn-border-width !default;
-$input-box-shadow: $box-shadow-inset !default;
+$input-box-shadow: none !default;
 
 $input-border-radius: $border-radius !default;
 $input-border-radius-sm: $border-radius-sm !default;
@@ -961,11 +961,11 @@ $form-select-feedback-icon-size: $input-height-inner-half $input-height-inner-ha
 $form-select-border-width: $input-border-width !default;
 $form-select-border-color: $input-border-color !default;
 $form-select-border-radius: $input-border-radius !default;
-$form-select-box-shadow: $box-shadow-inset !default;
+$form-select-box-shadow: none !default;
 
 $form-select-focus-border-color: $input-focus-border-color !default;
 $form-select-focus-width: $input-focus-width !default;
-$form-select-focus-box-shadow: 0 0 0 $form-select-focus-width $input-btn-focus-color !default;
+$form-select-focus-box-shadow: none !default;
 
 $form-select-padding-y-sm: $input-padding-y-sm !default;
 $form-select-padding-x-sm: $input-padding-x-sm !default;

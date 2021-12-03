@@ -3,7 +3,7 @@ import { steps } from '../utils/constants';
 
 function HowItWorks() {
     return (
-        <section className='py-5'>
+        <section className='pb-5'>
             <div className='container'>
                 <div className='rounded-lg p-4 p-lg-5 bg-dark text-white position-relative shadow'>
                     <div className='row text-center gy-4'>

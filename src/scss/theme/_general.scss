@@ -218,3 +218,22 @@ section {
 .btn-check.active + label {
     background: $secondary !important;
 }
+
+.was-validated .form-control:valid,
+.was-validated .form-select:valid {
+    background-size: 0 !important;
+    box-shadow: none !important;
+    border-color: $input-border-color !important;
+
+    &:focus {
+        border-color: $input-focus-border-color !important;
+        box-shadow: none !important;
+    }
+}
+
+.was-validated .form-control:invalid {
+    background-size: 1.3rem !important;
+}
+.was-validated .form-select:invalid {
+    background-size: 1.3rem !important;
+}

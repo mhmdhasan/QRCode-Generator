@@ -289,6 +289,25 @@ $spacing: 0.1em 0.2em 0.3em 0.4em 0.5em;
 .preview-holder {
     position: relative;
     min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.preview-error {
+    position: relative;
+    .alert {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 999;
+    }
+
+    img {
+        opacity: 0.05;
+    }
 }
 
 .preview-loader {

@@ -17,7 +17,7 @@ function Event() {
                     <h5 className='mb-0'>Event</h5>
                 </header>
 
-                <form className='mb-4'>
+                <form className='needs-validation' novalidation='true'>
                     <div className='row gy-3'>
                         <div className='col-lg-6'>
                             <div className='form-floating'>
@@ -28,8 +28,10 @@ function Event() {
                                     name='event_title'
                                     autoComplete='off'
                                     placeholder='Event Title'
+                                    pattern='.*\S+.*'
                                     value={event_title}
-                                    onChange={updateState}
+                                    onInput={updateState}
+                                    required={true}
                                 />
                                 <label htmlFor='eventTitle'>Event Title</label>
                             </div>
@@ -45,7 +47,7 @@ function Event() {
                                     autoComplete='off'
                                     placeholder='Location'
                                     value={event_location}
-                                    onChange={updateState}
+                                    onInput={updateState}
                                 />
                                 <label htmlFor='eventLocation'>Location</label>
                             </div>
@@ -61,7 +63,8 @@ function Event() {
                                     autoComplete='off'
                                     placeholder='Start Time'
                                     value={event_start_time}
-                                    onChange={updateState}
+                                    onInput={updateState}
+                                    required={true}
                                 />
                                 <label htmlFor='eventStartTime'>Start Time</label>
                             </div>
@@ -77,7 +80,7 @@ function Event() {
                                     autoComplete='off'
                                     placeholder='End Time'
                                     value={event_end_time}
-                                    onChange={updateState}
+                                    onInput={updateState}
                                 />
                                 <label htmlFor='eventEndTime'>End Time</label>
                             </div>
@@ -92,7 +95,7 @@ function Event() {
                                     autoComplete='off'
                                     placeholder='Reminder before event'
                                     value={event_reminder}
-                                    onChange={updateState}
+                                    onInput={updateState}
                                 >
                                     <option value='PT0M'>When the event starts</option>
                                     <option value='-PT5M'>5 minutes</option>
@@ -124,7 +127,7 @@ function Event() {
                                     autoComplete='off'
                                     placeholder='Link'
                                     value={event_link}
-                                    onChange={updateState}
+                                    onInput={updateState}
                                 />
                                 <label htmlFor='eventLink'>Link</label>
                             </div>
@@ -139,7 +142,7 @@ function Event() {
                                     autoComplete='off'
                                     placeholder='Notes'
                                     value={event_notes}
-                                    onChange={updateState}
+                                    onInput={updateState}
                                 ></textarea>
                                 <label htmlFor='eventNotes'>Notes</label>
                             </div>

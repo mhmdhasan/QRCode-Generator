@@ -165,11 +165,15 @@ export function reducer(state, action) {
     }
 
     if (action.type === 'SHOW_LOADER') {
-        return { ...state, preview_loader: true };
+        return { ...state, preview_loader: true, preview_error: false };
     }
 
     if (action.type === 'HIDE_LOADER') {
-        return { ...state, preview_loader: false };
+        return { ...state, preview_loader: false, preview_error: false };
+    }
+
+    if (action.type === 'SHOW_ERROR') {
+        return { ...state, preview_loader: false, preview_error: true };
     }
 
     throw new Error(`There's no matching ${action.type} - action type`);

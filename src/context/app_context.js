@@ -2,10 +2,11 @@ import React, { useContext, useReducer, useEffect } from 'react';
 import { reducer } from '../reducer/app_reducer';
 import Axios from 'axios';
 
-// Reducer Functionalitiy
+// Initial App State
 export const initialState = {
     form_type: 'link',
     preview_loader: false,
+    preview_error: false,
     gradient: {
         use_gradient: false,
         gradient_direction: 'diagonal',
@@ -101,14 +102,35 @@ export function AppProvider({ children }) {
             document.getElementById('imgPreview').innerHTML = response.data;
             dispatch({ type: 'HIDE_LOADER' });
         } catch (err) {
-            dispatch({ type: 'HIDE_LOADER' });
+            dispatch({ type: 'SHOW_ERROR' });
             console.log(err);
         }
+    }
+
+    function validation() {
+        var forms = document.querySelectorAll('.needs-validation');
+        Array.prototype.slice.call(forms).forEach(function (form) {
+            form.addEventListener(
+                'input',
+                function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                },
+                false
+            );
+        });
     }
 
     useEffect(() => {
         codeRequest();
     }, []);
+
+    useEffect(() => {
+        validation();
+    }, [state]);
 
     return (
         <AppContext.Provider

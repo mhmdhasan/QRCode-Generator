@@ -73,7 +73,7 @@ function Location() {
                     </div>
                     <h5 className='mb-0'>Location</h5>
                 </header>
-                <form className='mb-4'>
+                <form className='needs-validation mb-4' novalidation='true'>
                     <div className='row gy-3'>
                         <div className='col-lg-6'>
                             <div className='form-floating'>
@@ -84,8 +84,9 @@ function Location() {
                                     name='map_latitude'
                                     autoComplete='off'
                                     placeholder='Latitude'
-                                    onChange={updateState}
+                                    onInput={updateState}
                                     value={latitude}
+                                    required={true}
                                 />
                                 <label htmlFor='latitude'>Latitude</label>
                             </div>
@@ -99,8 +100,9 @@ function Location() {
                                     name='map_longitude'
                                     autoComplete='off'
                                     value={longitude}
-                                    onChange={updateState}
+                                    onInput={updateState}
                                     placeholder='Longitude'
+                                    required={true}
                                 />
                                 <label htmlFor='longitude'>Longitude</label>
                             </div>

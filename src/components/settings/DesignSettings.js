@@ -6,7 +6,6 @@ function FrameSettings({ tabId, visibility }) {
     const { eye_number, updatePatternState, updateEyeStyleState, updateEyePosition } = useAppContext();
     const [patternIndex, setPatternIndex] = useState(0);
     const [eyeStyleIndex, setEyeStyleIndex] = useState(0);
-    console.log(patternIndex);
 
     return (
         <div className={`tab-pane fade ${visibility}`} id={tabId} role='tabpanel' aria-labelledby={`${tabId}-tab`}>

@@ -14,7 +14,7 @@ function Link() {
                     </div>
                     <h5 className='mb-0'>Link</h5>
                 </header>
-                <form>
+                <form className='needs-validation' novalidation='true'>
                     <div className='row gy-3'>
                         <div className='col-lg-12'>
                             <div className='form-floating'>
@@ -26,7 +26,9 @@ function Link() {
                                     autoComplete='off'
                                     placeholder='e.g. Jason@doe.com'
                                     value={form_fields.url}
-                                    onChange={updateState}
+                                    onInput={updateState}
+                                    pattern='.*\S+.*'
+                                    required={true}
                                 />
                                 <label htmlFor='url'>Url</label>
                             </div>
