@@ -59,7 +59,7 @@ function Location() {
         }
 
         createMap();
-    }, []);
+    }, [updateState]);
 
     form_fields.map_latitude = latitude;
     form_fields.map_longitude = longitude;
