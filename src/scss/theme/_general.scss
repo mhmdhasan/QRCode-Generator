@@ -221,7 +221,6 @@ section {
 
 .was-validated .form-control:valid,
 .was-validated .form-select:valid {
-    background-size: 0 !important;
     box-shadow: none !important;
     border-color: $input-border-color !important;
 
@@ -229,6 +228,18 @@ section {
         border-color: $input-focus-border-color !important;
         box-shadow: none !important;
     }
+}
+
+.was-validated .form-control:valid {
+    padding-right: $input-padding-x !important;
+    background-size: 0 !important;
+}
+.was-validated .form-select:valid {
+    padding-right: $form-select-padding-x * 3 !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%232d3236' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 1.5rem center !important;
+    background-size: 16px 12px !important;
 }
 
 .was-validated .form-control:invalid {
