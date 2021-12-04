@@ -59,7 +59,9 @@ function Location() {
         }
 
         createMap();
-    }, [updateState]);
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     form_fields.map_latitude = latitude;
     form_fields.map_longitude = longitude;
